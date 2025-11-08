@@ -7,5 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Simple JSON endpoint to integrate with Flutter frontend
 Route::get('/sample', [SampleController::class, 'index']);
+
+Route::post('/sample/insert', [SampleController::class, 'insert']);
+
+Route::get('/sample/all', [SampleController::class, 'all']);
