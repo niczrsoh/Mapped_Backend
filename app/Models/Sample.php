@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use MongoDB\Laravel\Eloquent\Model;
-
+use Jenssegers\Mongodb\Eloquent\Model;
+/**
+ * @method static self create(array $attributes = [])
+ * @method bool save(array $options = [])
+ */
 class Sample extends Model
 {
     protected $connection = 'mongodb';

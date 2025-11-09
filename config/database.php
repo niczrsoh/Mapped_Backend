@@ -113,14 +113,16 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_URI'),
+            // Accept either DB_URI or MONGODB_URI
+            'dsn' => env('DB_URI') ?: env('MONGODB_URI'),
+            // Fallbacks if DSN not provided
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', 27017),
-            'database' => env('DB_DATABASE'),
+            'database' => env(key: 'DB_DATABASE') ?: env('MONGODB_DATABASE', 'Sample'),
             'username' => env('DB_USERNAME', ''),
             'password' => env('DB_PASSWORD', ''),
             'options' => [
-                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
+                'database' => env('DB_AUTHENTICATION_DATABASE', env('DB_DATABASE', 'admin')),
             ],
         ],
 

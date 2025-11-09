@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // Composer auto-discovery registers package providers.
+    // Remove manual MongoDB provider to avoid class-not-found until ext-mongodb is installed.
+
 ];
